@@ -1,27 +1,46 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Header/>
-
-      
-    </div>
-    <router-view/>
-    <Footer/>
+    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout" />
+    <router-view @loggedIn="login($event)" />
+    <Footer />
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
-    Footer
-  }
-  
-}
+    Footer,
+  },
+  data: function() {
+    return {
+      loggedIn: false,
+      tokens: {},
+      URL: "https://emp4backend.herokuapp.com",
+    };
+  },
+  methods: {
+    login: function(event) {
+      console.log("event heard");
+      this.loggedIn = true;
+      console.log(event.token)
+      this.tokens = event;
+      this.$router.push({
+        path: "Main",
+        query: { tokens: this.tokens, URL: this.URL },
+      });
+    },
+    logout: function() {
+      this.loggedIn = false;
+      this.tokens = {};
+      this.$router.push('/')
+    },
+  },
+};
 </script>
 
 <style>
