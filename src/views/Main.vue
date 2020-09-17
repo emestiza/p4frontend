@@ -1,17 +1,23 @@
 <template>
   <div class="main">
-    <b-field label="New Subject" type="is-danger" message="Enter a new Subject here">
-      <b-input type="text" v-model="message" maxlength="25"> </b-input>
+    <b-field label="New Subject" type="is-danger">
+      <b-input type="text" v-model="subjectName" maxlength="25"> </b-input>
+    </b-field>
+    <b-field>
+       <b-input maxlength="100" type="textarea" v-model="description"></b-input>
     </b-field>
     <b-button type="is-danger" @click="newSubject">New Subject</b-button><br /><br />
 
-        <b-field label="New Subject" type="is-danger" message="Edit a Subject Here">
-      <b-input type="text" v-model="editmessage" maxlength="25"> </b-input>
+    <b-field label="Edit Subject" type="is-danger">
+      <b-input type="text" v-model="editSubjectName" maxlength="25"> </b-input>
+    </b-field>
+    <b-field>
+      <b-input maxlength="100" type="textarea" v-model="editSubjectDescription"></b-input>
     </b-field>
     <b-button type="is-danger" @click="editSubject" v-bind:id="editid">Edit Subject</b-button><br /><br />
     <ul>
       <li v-for="subject of subjects" v-bind:key="subject.id">
-        <b-message title="Default" aria-close-label="Close message">
+        <b-message title="Subject" aria-close-label="Close message">
           {{ subject.name }}
           <button
             v-bind:id="subject.id"
@@ -39,8 +45,10 @@ export default {
   data: function() {
     return {
       subjects: [],
-      message: "",
-      editmessage: "",
+      subjectName: "",
+      description: "",
+      editSubjectName: "",
+      editSubjectDescription: "",
       editid: null
     };
   },
@@ -57,7 +65,7 @@ export default {
           authorization: `JWT ${tokens.token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: this.name }),
+        body: JSON.stringify({ name: this.subjectName, description: this.description }),
       }).then(() => {
         this.getSubjects();
       });
@@ -90,9 +98,10 @@ export default {
         this.getSubjects();
       });
     },
-    editSelect: function(id, content){
+    editSelect: function(id, name, description){
       this.editid = id
-      this.editmessage = content
+      this.editSubjectName = name
+      this.editSubjectDescription = description
     },
     editSubject: function() {
       const { tokens, URL } = this.$route.query;
@@ -104,7 +113,7 @@ export default {
           authorization: `JWT ${tokens.token}`,
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({message: this.editmessage})
+        body: JSON.stringify({name: this.editSubjectName, description: this.editSubjectDescription })
       }).then(() => {
         this.getSubjects();
       });
@@ -120,5 +129,4 @@ div.main {
   margin: 10px auto;
 }
 </style>
-
 
