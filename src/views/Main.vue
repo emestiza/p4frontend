@@ -1,10 +1,12 @@
 <template>
   <div class="main">
+
+   
     <!-- Subject -->
-    <b-field label="New Subject" type="is-danger">
+    <b-field label="Subject" type="is-danger">
       <b-input type="text" v-model="subjectName" maxlength="25"></b-input>
     </b-field>
-    <b-field>
+    <b-field label="Description">
       <b-input maxlength="100" type="textarea" v-model="description"></b-input>
     </b-field>
     <b-button type="is-danger" @click="newSubject">New Subject</b-button>
@@ -14,7 +16,7 @@
     <b-field label="Edit Subject" type="is-danger">
       <b-input type="text" v-model="editSubjectName" maxlength="25"></b-input>
     </b-field>
-    <b-field>
+    <b-field label="Edit Description">
       <b-input maxlength="100" type="textarea" v-model="editSubjectDescription"></b-input>
     </b-field>
     <b-button type="is-danger" @click="editSubject" v-bind:id="editid">Edit Subject</b-button>
@@ -22,10 +24,10 @@
     <br />
 
     <!-- Topic -->
-    <b-field label="New Topic" type="is-danger">
+    <b-field label="Topic" type="is-danger">
       <b-input type="text" v-model="topicName" maxlength="25"></b-input>
     </b-field>
-    <b-field>
+    <b-field label="Description">
       <b-input maxlength="100" type="textarea" v-model="topicDescription"></b-input>
     </b-field>
     <b-field label="Subject">
@@ -40,10 +42,10 @@
     <b-field label="Edit Topic" type="is-danger">
       <b-input type="text" v-model="editTopicName" maxlength="25"></b-input>
     </b-field>
-    <b-field>
+    <b-field label="Edit Description">
       <b-input maxlength="100" type="textarea" v-model="editTopicDescription"></b-input>
     </b-field>
-    <b-field label="Subject">
+    <b-field label="Edit Subject">
       <b-select placeholder="Select a subject" v-model="subjectEdit">
         <option v-for="subject of subjects" v-bind:key="subject.id" v-bind:value="subject.id">{{ subject.name }}</option>
       </b-select>

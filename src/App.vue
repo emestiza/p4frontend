@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout" />
+    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" v-bind:username="tokens.username" @logout="logout" />
     <router-view @loggedIn="login($event)" />
     <Footer />
   </div>

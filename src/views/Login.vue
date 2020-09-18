@@ -1,9 +1,9 @@
 <template>
   <div class="login">
+    <p v-if="$route.params.message">{{$route.params.message}}</p>
     <b-field
       label="Username"
       type="is-success"
-      message="This username is available"
     >
       <b-input v-model="username"></b-input>
     </b-field>
