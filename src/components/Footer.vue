@@ -1,27 +1,22 @@
 <template>
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>© 2020 StudyDB. All Rights Reserved. </strong>
-    </p>
+  <div class="sticky">
+    <footer class="footer content has-text-centered">© 2020 StudyDB. All Rights Reserved.</footer>
   </div>
-</footer>
 </template>
 
 <script>
-
 export default {
-name: 'footer'
-}
-
+  name: "footer"
+};
 </script>
 
 
 <style>
-.footer {
-  position: relative;
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
   bottom: 0;
-  width: 100%
+  /* width: 100%; */
+  /* overflow: hidden; */
 }
-
 </style>

@@ -137,7 +137,7 @@ export default {
 
 <style>
 div.main {
-  width: 70%;
+  width: 80%;
   min-width: 300px;
   margin: 10px auto;
 }

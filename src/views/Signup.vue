@@ -76,8 +76,8 @@ export default {
 </script>
 
 <style>
-.login {
-  width: 70%;
+.signup {
+  width: 25%;
   margin: 10px auto;
 }
 </style>

@@ -62,7 +62,7 @@ export default {
 
 <style>
 .login {
-  width: 70%;
+  width: 25%;
   margin: 10px auto;
 }
 </style>

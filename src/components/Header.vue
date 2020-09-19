@@ -59,7 +59,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 
 nav {
-  width: 80%;
+  width: 100%;
   margin: 10px auto;
 }
 

@@ -14,13 +14,13 @@
 
 <script>
 import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
+// import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Footer
+    // Footer
   },
   data: function() {
     return {
@@ -34,6 +34,7 @@ export default {
       console.log("event heard");
       this.loggedIn = true;
       console.log(event.token);
+      console.log(event);
       this.tokens = event;
       this.$router.push({
         path: "Main",

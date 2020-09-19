@@ -297,9 +297,9 @@ export default {
 
 <style>
 div.main {
-  width: 70%;
-  min-width: 300px;
-  margin: 10px auto;
+  width: 50%;
+  /* min-width: 300px; */
+  /* margin: 10px auto; */
 }
 </style>
 
