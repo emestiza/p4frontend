@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" v-bind:username="tokens.username" @logout="logout" />
+    <Header
+      v-bind:URL="URL"
+      v-bind:loggedIn="loggedIn"
+      v-bind:username="tokens.username"
+      @logout="logout"
+    />
     <router-view @loggedIn="login($event)" />
     <Footer />
   </div>
@@ -14,32 +19,32 @@ export default {
   name: "App",
   components: {
     Header,
-    Footer,
+    Footer
   },
   data: function() {
     return {
       loggedIn: false,
       tokens: {},
-      URL: "https://emp4backend.herokuapp.com",
+      URL: "https://emp4backend.herokuapp.com"
     };
   },
   methods: {
     login: function(event) {
       console.log("event heard");
       this.loggedIn = true;
-      console.log(event.token)
+      console.log(event.token);
       this.tokens = event;
       this.$router.push({
         path: "Main",
-        query: { tokens: this.tokens, URL: this.URL },
+        query: { tokens: this.tokens, URL: this.URL }
       });
     },
     logout: function() {
       this.loggedIn = false;
       this.tokens = {};
-      this.$router.push('/')
-    },
-  },
+      this.$router.push("/");
+    }
+  }
 };
 </script>
 

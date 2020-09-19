@@ -6,14 +6,17 @@
       </b-navbar-item>
     </template>
 
-    <!-- <template slot="start">
+    <template slot="start">
       <b-navbar-item href="#">
-        <router-link to="/">Home</router-link>
+        <router-link to="/main">Main</router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
-        <router-link to="/Page2">About</router-link>
+        <router-link to="/subjects">Subjects</router-link>
       </b-navbar-item>
-    </template>-->
+      <b-navbar-item href="#">
+        <router-link to="/topics">Topics</router-link>
+      </b-navbar-item>
+    </template>
 
     <template slot="end">
       <b-navbar-item tag="div">

@@ -15,3 +15,13 @@ name: 'footer'
 }
 
 </script>
+
+
+<style>
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%
+}
+
+</style>

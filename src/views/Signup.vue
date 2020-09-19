@@ -62,6 +62,7 @@ export default {
             console.log(data);
             this.$router.push({
               name: "Login",
+              query: this.$route.query,
               params: { message: "Sign up complete! Log in to continue." }
             });
           });

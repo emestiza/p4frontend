@@ -4,6 +4,9 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Signup from "../views/Signup.vue";
 import Main from "../views/Main.vue";
+import Subject from "../views/Subject.vue";
+import Topic from "../views/Topic.vue";
+
 
 Vue.use(VueRouter);
 
@@ -31,7 +34,18 @@ const routes = [
     component: Main,
     props: true
   },
-
+  {
+    path: "/subjects",
+    name: "Subject",
+    component: Subject,
+    props: true
+  },
+  {
+    path: "/topics",
+    name: "Topic",
+    component: Topic,
+    props: true
+  },
 ];
 
 const router = new VueRouter({
