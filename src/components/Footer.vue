@@ -18,7 +18,7 @@ name: 'footer'
 
 
 <style>
-footer {
+.footer {
   position: relative;
   bottom: 0;
   width: 100%

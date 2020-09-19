@@ -11,7 +11,7 @@
         <router-link to="/main">Main</router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
-        <router-link to="/subjects">Subjects</router-link>
+        <router-link :to="{name:'Subject', query:{URL,token}}">Subjects</router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
         <router-link to="/topics">Topics</router-link>
@@ -46,7 +46,7 @@
 <script>
 export default {
   name: "Header",
-  props: ["URL", "loggedIn"],
+  props: ["URL", "loggedIn", "token"],
   methods: {
     logout: function() {
       this.$emit("logout");

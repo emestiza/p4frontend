@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header
+      v-bind:info="{URL:URL,token:token}"
       v-bind:URL="URL"
       v-bind:loggedIn="loggedIn"
       v-bind:username="tokens.username"
