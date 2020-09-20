@@ -64,12 +64,12 @@ export default {
   methods: {
     // Subject
     newSubject: function() {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
 
       fetch(`${URL}/api/subject/`, {
         method: "post",
         headers: {
-          authorization: `JWT ${tokens.token}`,
+          authorization: `JWT ${info.token}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -81,12 +81,12 @@ export default {
       });
     },
     getSubjects: function() {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
 
       fetch(`${URL}/api/subject/`, {
         method: "get",
         headers: {
-          authorization: `JWT ${tokens.token}`
+          authorization: `JWT ${info.token}`
         }
       })
         .then(response => response.json())
@@ -96,13 +96,13 @@ export default {
         });
     },
     deleteSubject: function(event) {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
       const id = event.target.id;
 
       fetch(`${URL}/api/subject/${id}/`, {
         method: "delete",
         headers: {
-          authorization: `JWT ${tokens.token}`
+          authorization: `JWT ${info.token}`
         }
       }).then(() => {
         this.getSubjects();
@@ -114,13 +114,13 @@ export default {
       this.editSubjectDescription = description;
     },
     editSubject: function() {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
       const id = this.editid;
 
       fetch(`${URL}/api/subject/${id}/`, {
         method: "put",
         headers: {
-          authorization: `JWT ${tokens.token}`,
+          authorization: `JWT ${info.token}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({

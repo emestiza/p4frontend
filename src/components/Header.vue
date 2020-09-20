@@ -11,10 +11,10 @@
         <router-link to="/main">Main</router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
-        <router-link :to="{name:'Subject', query:{URL,token}}">Subjects</router-link>
+        <router-link :to="{name:'Subject', query:{URL:this.URL, info:this.$attrs.info}}">Subjects</router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
-        <router-link to="/topics">Topics</router-link>
+        <router-link :to="{name:'Topic', query:{URL:this.URL, info:this.$attrs.info}}">Topics</router-link>
       </b-navbar-item>
     </template>
 

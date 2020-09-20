@@ -85,12 +85,12 @@ export default {
   methods: {
     // Topic
     newTopic: function() {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
 
       fetch(`${URL}/api/topic/`, {
         method: "post",
         headers: {
-          authorization: `JWT ${tokens.token}`,
+          authorization: `JWT ${info.token}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -104,12 +104,12 @@ export default {
       });
     },
     getTopics: function() {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
 
       fetch(`${URL}/api/topic/`, {
         method: "get",
         headers: {
-          authorization: `JWT ${tokens.token}`
+          authorization: `JWT ${info.token}`
         }
       })
         .then(response => response.json())
@@ -119,13 +119,13 @@ export default {
         });
     },
     deleteTopic: function(event) {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
       const id = event.target.id;
 
       fetch(`${URL}/api/topic/${id}/`, {
         method: "delete",
         headers: {
-          authorization: `JWT ${tokens.token}`
+          authorization: `JWT ${info.token}`
         }
       }).then(() => {
         this.getTopics();
@@ -138,13 +138,13 @@ export default {
       this.subjectEdit = subject;
     },
     editTopic: function() {
-      const { tokens, URL } = this.$route.query;
+      const { info, URL } = this.$route.query;
       const id = this.editid;
 
       fetch(`${URL}/api/topic/${id}/`, {
         method: "put",
         headers: {
-          authorization: `JWT ${tokens.token}`,
+          authorization: `JWT ${info.token}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
