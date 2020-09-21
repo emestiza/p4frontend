@@ -1,15 +1,12 @@
 <template>
   <div class="login">
     <p v-if="$route.params.message">{{$route.params.message}}</p>
-    <b-field
-      label="Username"
-      type="is-success"
-    >
-      <b-input v-model="username"></b-input>
+    <b-field label="Username" type="is-success">
+      <b-input v-model="username" placeholder="username"></b-input>
     </b-field>
 
     <b-field label="Password">
-      <b-input type="password" v-model="password" password-reveal> </b-input>
+      <b-input type="password" v-model="password" password-reveal placeholder="password"></b-input>
     </b-field>
     <br />
     <button class="button is-danger" @click="handleLogin">Log In</button>
@@ -22,41 +19,39 @@ export default {
   data: function() {
     return {
       username: "",
-      password: "",
+      password: ""
     };
   },
   methods: {
     handleLogin: function() {
-      console.log(this.$route.query.URL)
+      console.log(this.$route.query.URL);
       fetch(`${this.$route.query.URL}/auth/users/login/`, {
         method: "post",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           username: this.username,
-          password: this.password,
-        }),
+          password: this.password
+        })
       })
-        .then(response => 
-        {
+        .then(response => {
           if (response.status !== 200) {
-            response.json()
+            response.json();
           } else {
-            return response.json()
+            return response.json();
           }
-        }
-        )
+        })
         .then(data => {
-          console.log('data', data);
+          console.log("data", data);
           if (data) {
             this.$emit("loggedIn", data);
           } else {
-            alert('Incorrect login')
+            alert("Incorrect login");
           }
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

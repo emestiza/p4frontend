@@ -13,10 +13,10 @@ Link to project backend [here](https://github.com/emestiza/p4backend).
 |Day 1| Project Description | Complete
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
 |Day 2| Working RestAPI | Complete
-|Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
-|Day 4| Core Application Structure (Vue.js) | Incomplete
-|Day 5| MVP & Bug Fixes | Incomplete
-|Day 6| Final Touches and Present | Incomplete
+|Day 3| Core Application Structure (HTML, CSS, Vue.js) | Complete
+|Day 4| Core Application Structure (Vue.js) | Complete
+|Day 5| MVP & Bug Fixes | Complete
+|Day 6| Final Touches | Complete
 
 ## Project Description
 
@@ -46,12 +46,13 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Table/Chart
 - Vue.js
 - CSS/Bootstrap
-- Responsive design
-- Hamburger menu
+- Responsive Design
+- Hamburger Menu
 
 #### PostMVP 
 
-- Login page
+- Multiple Pages
+- Login Page
 - Footer
 
 ## Functional Components
@@ -61,39 +62,81 @@ Based on the initial logic defined in the previous sections, the logic is broken
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Hamburger | L | 1hr | -hr | -hr|
-| Navigation Bar | M | 1hr | -hr | -hr|
-| Sign In Modal | H | 2hrs | -hr | -hr|
-| Input Modal | H | 2hrs| -hr | -hr |
-| Table/Chart | H | 4hrs | -hr | -hr|
-| Vue.js | H | 6hrs| -hr | -hr |
-| CSS/Bootstrap | M | 2hrs | -hr | -hr|
-| Responsive design | M | 1hr | -hr | -hr|
-| Total | H | 19hrs| -hrs | -hrs |
+| Navigation Bar | M | 2hrs | 2hrs | 2hrs|
+| Sign In Form | H | 2hrs | 2hrs | 2hrs|
+| Sign Up Form | H | 2hrs | 2hrs | 2hrs|
+| Data Input Forms | H | 2hrs| 2hrs | 2hrs |
+| CRUD | H | 8hrs | 8hrs | 8hrs|
+| Vue.js R&D | H | 8hrs| 8hrs | 8hrs |
+| Responsive Design | M | 1hr | 1hr | 1hr|
+| Total | H | 25hrs| 25hrs | 25hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Login page | M | 2hrs | -hrs | -hr|
-| Footer | L | 1hr | -hr | -hr|
-| Total | H | 3hrs| -hrs | -hrs |
+| Multiple Pages | L | 4hrs | -4hrs | -4hrs|
+| Login Page | L | 2hrs | -0hrs | -0hrs|
+| Footer | L | 1hr | 1hr | 1hr|
+| Total | H | 7hrs| 5hrs | 5hrs |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project. 
+The Buefy library was used for responsive UI components for Vue.js based on Bulma framework and design. 
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
+This is a brief code snippet of sign up functionality. Here a component for new user sign up is created. The registration url is fetched and then posts 
+the user input as JSON. If the sign up is completed successfully, then the user will be redirected to the log in page.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+export default {
+  name: "Signup",
+  data: function() {
+    return {
+      first_name: "",
+      last_name: "",
+      username: "",
+      email: "",
+      password: ""
+    };
+  },
+  methods: {
+    handleSignup: function() {
+      console.log(this.$route.query.URL);
+      fetch(`${this.$route.query.URL}/auth/users/register/`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          first_name: this.first_name,
+          last_name: this.last_name,
+          username: this.username,
+          email: this.email,
+          password: this.password
+        })
+      }).then(response => {
+        if (response.status == 201) {
+          response.json().then(data => {
+            console.log(data);
+            this.$router.push({
+              name: "Login",
+              query: this.$route.query,
+              params: { message: "Sign up complete! Log in to continue." }
+            });
+          });
+        } else {
+          return response.json();
+        }
+      });
+    }
+  }
+};
 ```
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
+**ERROR**: [Vue warn]: Error in created hook: "TypeError: Cannot read property 'token' of undefined"                               
+**RESOLUTION**: Share token between pages. Added the following to Header.vue: 
+```
+<router-link :to="{name:'Main', query:{URL:this.URL, tokens:this.$attrs.info}}">Main</router-link>
+```
 
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object

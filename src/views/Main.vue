@@ -1,7 +1,5 @@
 <template>
   <div class="main">
-
-
     <!-- <div id="app" class="container">
       <b-menu>
         <b-menu-list>
@@ -17,9 +15,9 @@
           </b-menu-item>
         </b-menu-list>
       </b-menu>
-    </div> -->
+    </div>-->
 
-    <!-- <p>{{$attrs.username}}</p> -->
+    <!-- <p>{{subject.owner}}</p> -->
 
     <!-- Subject -->
     <b-field label="Subject" type="is-danger">
@@ -297,9 +295,9 @@ export default {
 
 <style>
 div.main {
-  width: 50%;
-  /* min-width: 300px; */
-  /* margin: 10px auto; */
+  width: 25%;
+  min-width: 300px;
+  margin: 10px auto;
 }
 </style>
 

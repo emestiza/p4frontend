@@ -1,27 +1,27 @@
 <template>
   <div class="signup">
     <b-field label="Firstname" type="is-success">
-      <b-input v-model="first_name"></b-input>
+      <b-input v-model="first_name" placeholder="first name"></b-input>
     </b-field>
 
     <b-field label="Lastname" type="is-success">
-      <b-input v-model="last_name"></b-input>
+      <b-input v-model="last_name" placeholder="last name"></b-input>
     </b-field>
 
     <b-field label="Username" type="is-success">
-      <b-input v-model="username"></b-input>
+      <b-input v-model="username" placeholder="unique username"></b-input>
     </b-field>
 
     <b-field label="Email" type="is-success">
-      <b-input v-model="email"></b-input>
+      <b-input v-model="email" placeholder="valid email"></b-input>
     </b-field>
 
     <b-field label="Password">
       <b-input
-        placeholder="8 Characters Minimum"
         type="password"
         v-model="password"
         password-reveal
+        placeholder="password requires 8 characters"
       ></b-input>
     </b-field>
     <br />
@@ -81,4 +81,3 @@ export default {
   margin: 10px auto;
 }
 </style>
-

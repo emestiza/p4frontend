@@ -161,8 +161,8 @@ export default {
 </script>
 
 <style>
-div.main {
-  width: 80%;
+div.topic {
+  width: 25%;
   min-width: 300px;
   margin: 10px auto;
 }
