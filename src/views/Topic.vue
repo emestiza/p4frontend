@@ -56,7 +56,7 @@
           <button
             v-bind:id="topic.id"
             class="button is-success is-outlined"
-            @click="() => {editSelectTopic(topic.id, topic.name, topic.description, topic.subject)}"
+            @click="() => {editSelectTopic(topic.id, topic.name, topic.subject, topic.description)}"
           >edit</button>
         </b-message>
       </li>
@@ -152,14 +152,14 @@ export default {
       });
     },
     editSelectTopic: function(id, name, subject, description) {
-      this.editid = id;
+      this.editidTopic = id;
       this.editTopicName = name;
       this.editTopicDescription = description;
       this.subjectEdit = subject;
     },
     editTopic: function() {
       const { info, URL } = this.$route.query;
-      const id = this.editid;
+      const id = this.editidTopic;
 
       fetch(`${URL}/api/topic/${id}/`, {
         method: "put",
