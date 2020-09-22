@@ -17,7 +17,7 @@
       </b-menu>
     </div>-->
 
-    <!-- <p>{{subject.owner}}</p> -->
+    <p>{{$route.query.tokens.username}}</p>
 
     <!-- Subject -->
     <b-field label="Subject" type="is-danger">
@@ -145,6 +145,7 @@ export default {
   created: function() {
     this.getSubjects();
     this.getTopics();
+    console.log(this.$route.query)
   },
   methods: {
     // Subject

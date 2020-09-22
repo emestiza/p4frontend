@@ -1,5 +1,6 @@
 <template>
   <div class="topic">
+    <p>{{$route.query.info.username}}</p>
 
     <!-- Topic -->
     <b-field label="Topic" type="is-danger">
@@ -41,7 +42,7 @@
     <br />
 
     <ul>
-      <!-- Topic -->
+      <!-- Topic v-bind:key="topic.id" v-bind:value="topic.id" -->
       <li v-for="topic of topics" :key=" 't-' + topic.id ">
         <b-message title="Topic" aria-close-label="Close message">
           <h1>{{ topic.name }}</h1>
@@ -68,6 +69,7 @@ export default {
   name: "Topic",
   data: function() {
     return {
+      subjects: [],
       topics: [],
       topicName: "",
       topicDescription: "",
@@ -80,9 +82,27 @@ export default {
     };
   },
   created: function() {
+    this.getSubjects();
     this.getTopics();
   },
   methods: {
+    // Subject
+    getSubjects: function() {
+      const { info, URL } = this.$route.query;
+
+      fetch(`${URL}/api/subject/`, {
+        method: "get",
+        headers: {
+          authorization: `JWT ${info.token}`
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          this.subjects = data.results;
+        });
+    },
+
     // Topic
     newTopic: function() {
       const { info, URL } = this.$route.query;

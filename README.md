@@ -40,19 +40,18 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 #### MVP
 
-- Navigation Bar
-- Sign In Modal
-- Input Modal 
-- Table/Chart
+- Navigation bar
+- Log in form
+- Sign up form
+- Data input forms 
+- CRUD functionality
 - Vue.js
-- CSS/Bootstrap
-- Responsive Design
-- Hamburger Menu
+- Responsive design
 
 #### PostMVP 
 
-- Multiple Pages
-- Login Page
+- Multiple pages
+- Login page
 - Footer
 
 ## Functional Components
@@ -62,20 +61,20 @@ Based on the initial logic defined in the previous sections, the logic is broken
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Navigation Bar | M | 2hrs | 2hrs | 2hrs|
-| Sign In Form | H | 2hrs | 2hrs | 2hrs|
-| Sign Up Form | H | 2hrs | 2hrs | 2hrs|
-| Data Input Forms | H | 2hrs| 2hrs | 2hrs |
-| CRUD | H | 8hrs | 8hrs | 8hrs|
+| Navigation bar | M | 2hrs | 2hrs | 2hrs|
+| Log in form | H | 2hrs | 2hrs | 2hrs|
+| Sign up form | H | 2hrs | 2hrs | 2hrs|
+| Data input forms | H | 2hrs| 2hrs | 2hrs |
+| CRUD functionality | H | 8hrs | 8hrs | 8hrs|
 | Vue.js R&D | H | 8hrs| 8hrs | 8hrs |
-| Responsive Design | M | 1hr | 1hr | 1hr|
+| Responsive design | M | 1hr | 1hr | 1hr|
 | Total | H | 25hrs| 25hrs | 25hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Multiple Pages | L | 4hrs | -4hrs | -4hrs|
-| Login Page | L | 2hrs | -0hrs | -0hrs|
+| Multiple pages | L | 4hrs | -4hrs | -4hrs|
+| Login page | L | 2hrs | -0hrs | -0hrs|
 | Footer | L | 1hr | 1hr | 1hr|
 | Total | H | 7hrs| 5hrs | 5hrs |
 

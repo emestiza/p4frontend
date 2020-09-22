@@ -1,5 +1,6 @@
 <template>
   <div class="subject">
+    <p>{{$route.query.info.username}}</p>
 
     <!-- Subject -->
     <b-field label="Subject" type="is-danger">
@@ -40,7 +41,6 @@
           >edit</button>
         </b-message>
       </li>
-
     </ul>
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
       description: "",
       editSubjectName: "",
       editSubjectDescription: "",
-      editid: null,
+      editid: null
     };
   },
   created: function() {
@@ -130,7 +130,7 @@ export default {
       }).then(() => {
         this.getSubjects();
       });
-    },
+    }
   }
 };
 </script>

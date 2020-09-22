@@ -19,7 +19,7 @@ import Header from "./components/Header.vue";
 export default {
   name: "App",
   components: {
-    Header,
+    Header
     // Footer
   },
   data: function() {
@@ -40,11 +40,20 @@ export default {
         path: "Main",
         query: { tokens: this.tokens, URL: this.URL }
       });
+      window.sessionStorage.setItem("login", JSON.stringify(event));
     },
     logout: function() {
       this.loggedIn = false;
       this.tokens = {};
+      window.sessionStorage.removeItem("login");
       this.$router.push("/");
+    }
+  },
+  created: function() {
+    const getLogin = JSON.parse(window.sessionStorage.getItem("login"));
+    console.log(getLogin);
+    if (getLogin) {
+      this.login(getLogin);
     }
   }
 };
